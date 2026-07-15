@@ -819,6 +819,26 @@ def apply_reference_ui():
     div[data-testid="stHorizontalBlock"]:has(.cx-pe-tab-active)
     [data-testid="column"]:has(.cx-pe-tab-active) a p { color: #124FEA !important; }
     .cx-pe-tab-active [data-testid^="stPageLink"] { border-bottom: 3px solid #124FEA !important; }
+    div[data-testid="stHorizontalBlock"]:has(.cx-pe-tab-active) .stButton,
+    div[data-testid="stHorizontalBlock"]:has(.cx-pe-tab) .stButton {
+        width: 100% !important; height: 70px !important;
+    }
+    div[data-testid="stHorizontalBlock"]:has(.cx-pe-tab-active) .stButton > button,
+    div[data-testid="stHorizontalBlock"]:has(.cx-pe-tab) .stButton > button {
+        width: 100% !important; height: 70px !important; min-height: 70px !important;
+        padding: 0 6px !important; border: 0 !important; border-radius: 0 !important;
+        background: #FFFFFF !important; color: #526A90 !important;
+        box-shadow: none !important; font-size: .86rem !important;
+        font-weight: 700 !important; white-space: normal !important; line-height: 1.15 !important;
+    }
+    div[data-testid="stHorizontalBlock"]:has(.cx-pe-tab-active)
+    [data-testid="column"]:has(.cx-pe-tab-active) .stButton > button {
+        color: #124FEA !important; border-bottom: 3px solid #124FEA !important;
+    }
+    div[data-testid="stHorizontalBlock"]:has(.cx-pe-tab-active) .stButton > button:hover,
+    div[data-testid="stHorizontalBlock"]:has(.cx-pe-tab) .stButton > button:hover {
+        color: #124FEA !important; background: #F7F9FE !important;
+    }
 
     /* Portfolio workflow sidebar */
     [data-testid="stSidebar"] {

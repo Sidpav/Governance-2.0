@@ -161,13 +161,19 @@ def render_navbar(active: str = "landing"):
                     "pe_responsibility": 5.6,
                     "pe_execution_approval": 2.4,
                 }.get(page_key, 1.5))
-            pe_cols = st.columns(widths + [3])
+            # Use explicit switch-page buttons here. Streamlit page_link anchors
+            # can lose their click target when their row is fixed with CSS.
+            pe_cols = st.columns(widths)
             for i, (page_key, label, target) in enumerate(visible_tabs):
                 with pe_cols[i]:
                     css = "cx-pe-tab-active" if active == page_key else "cx-pe-tab"
-                    st.markdown(f'<div class="{css}">', unsafe_allow_html=True)
-                    st.page_link(target, label=label)
-                    st.markdown("</div>", unsafe_allow_html=True)
+                    st.markdown(f'<span class="{css}"></span>', unsafe_allow_html=True)
+                    if st.button(
+                        label,
+                        key=f"cx_pe_nav_{page_key}_{active}",
+                        width="stretch",
+                    ):
+                        st.switch_page(target)
 
 
 def render_subtabs(items, active_target):
